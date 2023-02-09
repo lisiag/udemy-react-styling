@@ -1,29 +1,43 @@
-import styled from "styled-components";
+import styles from "./Button.module.css"; // import classes
 
-const Button = styled.button`
-  width: 100%;
-  font: inherit;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #8b005d;
-  color: white;
-  background: #8b005d;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
-  cursor: pointer;
+// When css modules are used, React creates unique classnames:
+// <component name>_<classname from css file>__<some unique hash>
+// e.g. in this case Button_button__2lgkF
 
-  @media (min-width: 768px) {
-    width: auto;
-  }
+const Button = (props) => {
+  return (
+    <button type={props.type} className={styles.button} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
 
-  &:focus {
-    outline: none;
-  }
+// import styled from "styled-components";
 
-  &:hover,
-  &:active {
-    background: #ac0e77;
-    border-color: #ac0e77;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
-  }
-`;
+// const Button = styled.button`
+//   width: 100%;
+//   font: inherit;
+//   padding: 0.5rem 1.5rem;
+//   border: 1px solid #8b005d;
+//   color: white;
+//   background: #8b005d;
+//   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+//   cursor: pointer;
+
+//   @media (min-width: 768px) {
+//     width: auto;
+//   }
+
+//   &:focus {
+//     outline: none;
+//   }
+
+//   &:hover,
+//   &:active {
+//     background: #ac0e77;
+//     border-color: #ac0e77;
+//     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+//   }
+// `;
 
 export default Button;
